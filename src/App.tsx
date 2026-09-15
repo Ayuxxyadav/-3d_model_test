@@ -4,7 +4,7 @@ import { Environment, useGLTF, OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 import "./index.css";
 
-import scooterModelUrl from "../public/horse_model.glb";
+import scooterModelUrl from "../public/asset_3d.glb";
 
 // 1. Scooter Model Component
 function Scooter() {
