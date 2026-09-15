@@ -1,10 +1,10 @@
 import React, { Suspense, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Environment, ContactShadows, useGLTF, OrbitControls } from "@react-three/drei";
+import { Environment, useGLTF, OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 import "./index.css";
 
-import scooterModelUrl from "../public/asset_3d.glb";
+import scooterModelUrl from "../public/horse_model.glb";
 
 // 1. Scooter Model Component
 function Scooter() {
@@ -12,7 +12,6 @@ function Scooter() {
 
   return (
     <group>
-      {/* Model ko aur bada kiya (scale: 4.2) aur vertically center aligned rakha */}
       <primitive object={scene} scale={4.2} position={[0, -0.1, 0]} />
     </group>
   );
@@ -87,7 +86,7 @@ export function App() {
           onPointerUp={() => setIsDragging(false)}
           onPointerLeave={() => setIsDragging(false)}
         >
-          {/* SteedGo Purple + Orange Dual Glow */}
+          {/* SteedGo Purple + Orange Dual Glow Background */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] bg-gradient-to-tr from-[#F3E8FF] to-[#FFF0E5] rounded-full blur-[100px] -z-10 pointer-events-none"></div>
 
           <Canvas camera={{ position: [0, 1.2, 7.8], fov: 45 }}>
@@ -107,14 +106,7 @@ export function App() {
               />
 
               <Scooter />
-
-              <ContactShadows 
-                position={[0, -0.15, 0]} 
-                opacity={0.35} 
-                scale={14} 
-                blur={2.4} 
-                far={4} 
-              />
+              {/* ContactShadows completely removed here */}
             </Suspense>
           </Canvas>
         </div>
